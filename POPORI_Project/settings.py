@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+CRISPY_TEMPLATE_PACK = 'uni_form'
 
 INSTALLED_APPS = [
     'crispy_forms',
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'poporiapp',
     'poporimember',
+    
 ]
 
 MIDDLEWARE = [
@@ -127,3 +129,4 @@ STATIC_URL = '/static/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 MEDIA_URL='/media/'
+AUTH_USER_MODEL = 'poporimember.CustomUser'
