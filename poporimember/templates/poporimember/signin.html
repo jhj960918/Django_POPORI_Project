@@ -1,0 +1,9 @@
+{% extends 'poporiapp/index.html' %}
+
+{% block login %}
+<form method="POST" action="{% url 'signin' %}">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input class="btn btn-primary" type="submit" value="로그인">
+</form>
+{% endblock %}

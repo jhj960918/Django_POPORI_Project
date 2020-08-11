@@ -3,10 +3,14 @@ from django.utils import timezone
 from django.core.paginator import Paginator
 from .models import Blog
 from .forms import BlogForm
+from poporimember.forms import LoginForm
+from poporimember.views import signin
 # Create your views here.
 def index(request):
     blogs = Blog.objects.order_by('-id')
-    return render(request,'poporiapp/index.html')
+    login_form = LoginForm()
+    return render(request,'poporimember/signin.html',{'form':login_form})
+
 def create(request):
     return render(request,'poporiapp/create.html')
 

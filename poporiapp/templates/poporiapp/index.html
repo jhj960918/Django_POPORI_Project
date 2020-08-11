@@ -41,9 +41,11 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'create' %}">포트폴리오 작성</a>
           </li>
+          {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="{% url 'signout' %}">logout</a>
           </li>
+          {% endif %}
           <form class="form-inline my-2 my-lg-0" action="/search/" method="get">
             <input class="form-control mr-sm-2" type="text" name="q" placeholder="검색어를 입력하세요">
               <button class="btn btn-secondary my-2 my-sm-0" type="submit" value="Search">Search</button>
@@ -57,7 +59,6 @@
 
   <!-- Page Content -->
   <div class="container">
-
     <!-- Heading Row -->
     <div class="row align-items-center my-5">
       <div class="col-lg-7">
@@ -65,21 +66,11 @@
       </div>
       <!-- /.col-lg-8 -->
       <div class="col-lg-5">
-        <h1>로그인</h1>
-
-        <form>
-            {% csrf_token %}
-            아이디:
-            <br>
-            <input name="username" type="text" >
-            <br>
-            비밀번호:
-            <br>
-            <input name="password" type="password" >
-            <br>
-            <br>
-            <input class="btn btn-primary" type="submit" value="로그인">
-        </form>
+        <h1>로그인</h1>  
+      <div class="form-group">
+        {% block login %}
+        {% endblock %}
+      </div>
   
       </div>
       <!-- /.col-md-4 -->
