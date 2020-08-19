@@ -5,7 +5,8 @@ from .models import Blog
 from .forms import BlogForm
 from poporimember.forms import LoginForm
 from poporimember.views import signin
-# Create your views here.
+
+
 def index(request):
     blogs = Blog.objects.order_by('-id')
     login_form = LoginForm()
